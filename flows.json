@@ -1,0 +1,78 @@
+[
+    {
+        "id": "e530caf7.1afa78",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "2231336d.77bf7c",
+        "type": "MSSQL-CN",
+        "z": "",
+        "tdsVersion": "7_4",
+        "name": "DatabaseConnection",
+        "server": "abc.xyz.com",
+        "port": "1433",
+        "encyption": true,
+        "database": "RefrigeratedTrucks",
+        "useUTC": true,
+        "connectTimeout": "15000",
+        "requestTimeout": "15000",
+        "cancelTimeout": "5000",
+        "pool": "5",
+        "parseJSON": false
+    },
+    {
+        "id": "7129f62.1033008",
+        "type": "MSSQL",
+        "z": "e530caf7.1afa78",
+        "mssqlCN": "2231336d.77bf7c",
+        "name": "",
+        "query": "",
+        "outField": "payload",
+        "returnType": 0,
+        "throwErrors": 1,
+        "x": 540,
+        "y": 160,
+        "wires": [
+            [
+                "fede4ac8.69fc38"
+            ]
+        ]
+    },
+    {
+        "id": "ddfc193c.13af58",
+        "type": "inject",
+        "z": "e530caf7.1afa78",
+        "name": "",
+        "topic": "",
+        "payload": "create table trucks ( truckId int primary key, truckNumber nvarchar(10))",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 330,
+        "y": 160,
+        "wires": [
+            [
+                "7129f62.1033008"
+            ]
+        ]
+    },
+    {
+        "id": "fede4ac8.69fc38",
+        "type": "debug",
+        "z": "e530caf7.1afa78",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 750,
+        "y": 160,
+        "wires": []
+    }
+]
